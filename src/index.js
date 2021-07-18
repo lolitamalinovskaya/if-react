@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import HeaderGuestLoves from "./components/HeaderGuestLoves";
+import './styles/components/HeaderGuestLoves.css';
+import MainGuestLoves from "./components/MainGuestLoves";
+
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <section className="homes_guests_loves col-14 col-md-14">
+          <div className="homes_guests_loves_container col-md-14">
+              <HeaderGuestLoves />
+              <MainGuestLoves/>
+          </div>
+      </section>
   </React.StrictMode>,
   document.getElementById('root')
 );
