@@ -1,5 +1,5 @@
-
-import '../styles/components/MainGuestLoves.css';
+import React from 'react';
+import '../styles/components/App.css';
 import data from "../constants/dataGuest";
 
 
