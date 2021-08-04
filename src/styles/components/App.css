@@ -2,14 +2,14 @@
   font-family: Roboto;
   font-weight: 400;
   font-style: normal;
-  src: url("../../fonts/Roboto-400-l.woff2") format('woff2');
+  src: url("../../fonts/Roboto-400-l.woff2") format("woff2");
 }
 
 @font-face {
   font-family: Roboto;
   font-weight: 500;
   font-style: normal;
-  src: url("../../fonts/Roboto-500-l.woff2") format('woff2');
+  src: url("../../fonts/Roboto-500-l.woff2") format("woff2");
 }
 
 :root {
@@ -88,12 +88,28 @@
 }
 
 
+.homes_guests_loves_header_heading120 {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+
+}
+
+.homes_guests_loves_header_h2 {
+  font: 500 40px Roboto;
+  color: var(--text-color-main);
+  margin: 0;
+  padding-top: 120px;
+}
+
 .homes_guests_loves {
   box-sizing: border-box;
   height: 830px;
   background-color: var(--bg-color-main);
   margin: 0;
 }
+
+
 .homes_guests_loves_main {
   padding-top: 105px;
 }
@@ -162,4 +178,3 @@ p, figure {
   top: 8rem; /*calc(100% - 20px);*/
   z-index: 2;
 }
-

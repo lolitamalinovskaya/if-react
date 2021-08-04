@@ -2,20 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import HeaderGuestLoves from "./components/HeaderGuestLoves";
-import './styles/components/HeaderGuestLoves.css';
-import MainGuestLoves from "./components/MainGuestLoves";
+import './styles/components/App.css';
+import App from "./components/App";
+
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-      <section className="homes_guests_loves col-14 col-md-14">
-          <div className="homes_guests_loves_container col-md-14">
-              <HeaderGuestLoves />
-              <MainGuestLoves/>
-          </div>
-      </section>
+      <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

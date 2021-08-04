@@ -1,4 +1,5 @@
-import '../styles/components/HeaderGuestLoves.css';
+import React from 'react';
+import '../styles/components/App.css';
 
 function HeaderGuestLoves() {
   return (
