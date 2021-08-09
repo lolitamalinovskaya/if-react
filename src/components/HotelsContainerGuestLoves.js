@@ -2,9 +2,7 @@ import React from 'react';
 import '../styles/components/App.css';
 
 
-function HotelsImage({
-  image, name, city, country,
-}) {
+function HotelsImage({image, name, city, country}) {
   return (
     <div className="hotels_card">
       <img src={image} className="images" alt="hotelsImage" />

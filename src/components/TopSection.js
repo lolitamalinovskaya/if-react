@@ -7,6 +7,7 @@ import Logo from '../svg/logo_vector.svg';
 import Night from '../svg/Night.svg';
 import Account from '../svg/AccountCircle.svg';
 import MenuBurger from '../svg/menu.svg';
+import SelectionWindow from './SelectionWindow';
 
 class TopSection extends React.Component {
   constructor() {
@@ -14,6 +15,9 @@ class TopSection extends React.Component {
     this.state = {
       text: '',
       items: [],
+      isWindowShow: false,
+      queryString: '0 Adults — 0 Children — 0 Room',
+      windowHandler: this.showWindow.bind(this),
       searchSubmitHandler: this.searchSubmit.bind(this),
       searchFileHandler: this.searchChange.bind(this),
     };
@@ -33,13 +37,25 @@ class TopSection extends React.Component {
 
   searchSubmit(e) {
     e.preventDefault();
-    const text = this.state.text;
+    const { text } = this.state;
     this.fetchData(text)
       .then((x) => this.setState({ items: x }))
       .catch((x) => this.setState({ items: [] }));
   }
 
+  showWindow(e) {
+    e.preventDefault();
+    this.setState({ isWindowShow: true });
+  }
+
+  onUpdate(adults, children, rooms) {
+    this.setState({
+      queryString: `${adults} Adults — ${children} Children — ${rooms} Room`,
+    });
+  }
+
   render() {
+    const queryWindow = this.state.isWindowShow ? <SelectionWindow onUpdate={this.onUpdate.bind(this)} /> : null;
     return (
       <>
         <div className="top_wrapper">
@@ -112,7 +128,9 @@ class TopSection extends React.Component {
                     id="information_about_order"
                     type="text"
                     name="room"
-                    placeholder="2 Adults — 0 Children — 1 Room"
+                    placeholder={this.state.queryString}
+                    onClick={this.state.windowHandler}
+                    readOnly="readonly"
                   />
 
                   <button
@@ -127,35 +145,7 @@ class TopSection extends React.Component {
                   </button>
                 </form>
               </div>
-              <div className="window_for_choose_room">
-                <div className="content_of_window">
-                  <div className="adults_container">
-                    <p className="adults">Adults</p>
-                    <button className="decrease_adults">-</button>
-                    <span id="counter_adults" className="counter">2</span>
-                    <button className="increase_adults">+</button>
-                  </div>
-                  <div className="children_container">
-                    <p className="children">Children</p>
-                    <button className="decrease_children">-</button>
-                    <span id="counter_children" className="counter">1</span>
-                    <button className="increase_children">+</button>
-                  </div>
-                  <div className="rooms_container">
-                    <p className="rooms">Rooms</p>
-                    <button className="decrease_rooms">-</button>
-                    <span id="counter_rooms" className="counter">1</span>
-                    <button className="increase_rooms">+</button>
-                  </div>
-                  <div className="open_window_for_children">
-                    <p className="children_age">
-                      What is the age of the child you’re travelling
-                      with?
-                    </p>
-                    <div id="children_list" />
-                  </div>
-                </div>
-              </div>
+              {queryWindow}
               <div className="top_section_main_AppStore_GooglePlay col-4 col-md-6 col-sm-6">
                 <img src={GooglePlay} alt="google_play_badge" className="google_play_badge" />
                 <img src={Appstore} alt="app_store_badge" className="app_store_badge" />

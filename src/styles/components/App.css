@@ -290,7 +290,8 @@ body {
   border: none;
   outline: none;
 }
-.window_for_choose_room {
+
+.Selection_window {
   display: flex;
   box-sizing: border-box;
   width: 260px;
@@ -300,7 +301,7 @@ body {
   top: 590px;
   right: 295px;
   font: 400 16px Roboto;
-  visibility: hidden;
+  visibility: visible;
 }
 
 .content_of_window{
@@ -324,6 +325,10 @@ body {
   font: 400 18px Roboto;
   color: #CECECE;
   outline: none;
+}
+.active_buttons {
+  color: #3077C6;
+  border-color: #3077C6;
 }
 
 .counter {

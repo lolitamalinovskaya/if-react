@@ -6,7 +6,7 @@ import { HotelsContainerGuestLoves } from './HotelsContainerGuestLoves';
 class AvailableHotels extends React.Component {
   render() {
     if (this.props.items.length === 0) {
-      return (<></>);
+      return null;
     }
     return (
       <>
