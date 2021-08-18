@@ -9,6 +9,8 @@ import Account from '../svg/AccountCircle.svg';
 import MenuBurger from '../svg/menu.svg';
 import SelectionWindow from './SelectionWindow';
 
+import DatePickerMy from './DatePickerMy';
+
 class TopSection extends React.Component {
   constructor() {
     super();
@@ -24,7 +26,7 @@ class TopSection extends React.Component {
   }
 
   fetchData(query) {
-    return fetch(`https://fe-student-api.herokuapp.com/api/hotels/popular?${new URLSearchParams({
+    return fetch(`https://fe-student-api.herokuapp.com/api/hotels?${new URLSearchParams({
       search: query,
     })}`).then((x) => x.json());
   }
@@ -60,24 +62,7 @@ class TopSection extends React.Component {
       <>
         <div className="top_wrapper">
           <section className="top_container">
-            <header className="top_section_header col-14 col-md-14 col-sm-6">
-              <div className="top_section_header_logo">
-                <img src={Logo} alt="logo" className="logo_trip_house" />
-              </div>
-              <div className="top_section_header_stays_attractions_night_accountCircle">
-                <div className="top_section_header_stays_attractions">
-                  <p className="stays"> Stays </p>
-                  <p className="attractions"> Attractions</p>
-                </div>
-                <div className="top_section_header_night_accountCircle">
-                  <img src={Night} alt="night" className="night" />
-                  <img src={Account} alt="account_circle" className="account_circle" />
-                  <img src={MenuBurger} alt="menu" className="top_section_menu" />
-                </div>
-              </div>
-            </header>
-
-            <main className="top_section_main">
+             <main className="top_section_main">
               <h1 className="discoverStays col-14 col-md-14 col-sm-6">
                 {' '}
                 Discover stays
@@ -107,20 +92,9 @@ class TopSection extends React.Component {
                   />
 
                   <div id="top_section_main_input_for_check-in_check-out">
-                    <input
-                      className="col-sm-3"
-                      id="check-in"
-                      type="date"
-                      name="calendar"
-                      placeholder="Tue 15 Sept — "
-                    />
-                    <input
-                      className="col-sm-3"
-                      id="check-out"
-                      type="date"
-                      name="calendar"
-                      placeholder="Sat 19 Sept"
-                    />
+                    <div className="col-sm-3" name="calendar">
+                      <DatePickerMy />
+                    </div>
                   </div>
 
                   <label htmlFor="information_about_order"> </label>

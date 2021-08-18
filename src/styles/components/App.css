@@ -92,14 +92,19 @@ body {
   margin: 0;
 }
 
-.top_wrapper {
+.top_wrapper, .top_wrapper_header {
   box-sizing: border-box;
-  max-height: 900px;
-  min-height: 100vh;
+  max-height: 750px;
+  min-height: 85vh;
   background-image: url("../../images/background mountains.png");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.top_wrapper_header {
+  max-height: 150px;
+  min-height: 15vh;
+  background-image: url("../../images/headerbackground mountains.png");
 }
 
 .top_container {
@@ -110,10 +115,11 @@ body {
 }
 
 .top_section_header {
-  padding-top: 50px;
+  padding: 50px var(--one-col-width);
   display: flex;
   justify-content: space-between;
 }
+
 
 .logo_trip_house {
   width: 205px;
@@ -161,6 +167,7 @@ body {
 
 .stays, .attractions {
   margin: 0;
+
 }
 
 .stays:hover::after, .attractions:hover::after {
@@ -243,19 +250,19 @@ body {
   padding-left: 24px;
 }
 
-#check-in, #check-out {
+.check-in {
   font: 400 18px Roboto;
   border: none;
-  border-radius: 8px;
   outline: none;
 }
 
-#top_section_main_input_for_check-in_check-out { /*как настроить плэйсхолдер на текст а не на дату?*/
+#top_section_main_input_for_check-in_check-out {
   display: flex;
   box-sizing: border-box;
   height: 65px;
   width: 260px; /*260px / 1440*/
   align-self: center;
+  align-items: center;
   justify-content: center;
   border: 3px solid var(--secondary);
   border-radius: 8px;
@@ -332,7 +339,8 @@ body {
 }
 
 .counter {
-  margin: 0 20px;
+  /*margin: 0 20px;*/
+  padding: 0 20px;
 }
 .adults {
   padding-right: 61px;
@@ -502,15 +510,22 @@ p, figure {
   margin: 0;
 }
 
-.hotels_card{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: baseline;
-  min-width: 24%;
-  padding-right: 15px;
-
+.hotels_card {
+  height: 295px;
+  width: 295px;
 }
+.hotel_page_cart{
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.hotel_page_name{
+  padding-left: 15px;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 .hotels_card:last-child{
   padding-right: 0;
 }
@@ -520,8 +535,19 @@ p, figure {
   max-width: 295px;
   height: 100%;
   max-height: 295px;
-  object-position: top center;
+  object-position: center;
   object-fit: cover;
+
+}
+
+.hotel_page_image {
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  max-height: 500px;
+  object-position: center;
+  object-fit: cover;
+
 }
 
 .homes_guests_loves_main_name_hotel, .homes_guests_loves_main_name_place, .the_best_destinations_country {
@@ -530,7 +556,9 @@ p, figure {
   color: var(--primary);
   padding-top: 24px;
   flex-wrap: wrap;
+  text-decoration: none;
 }
+
 
 .homes_guests_loves_main_name_place {
   color: var(--secondary-text);
@@ -544,7 +572,7 @@ p, figure {
 .arrow_position_right {
   position: absolute;
   right: -20px;
-  top: 8rem; /*calc(100% - 20px);*/
+  top: 9rem; /*calc(100% - 20px);*/
   z-index: 2;
 }
 

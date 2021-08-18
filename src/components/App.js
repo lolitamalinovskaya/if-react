@@ -1,9 +1,27 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HeaderGuestLoves from './HeaderGuestLoves';
 import MainGuestLoves from './MainGuestLoves';
 import TopSection from './TopSection';
+import HeaderTopSection from './HeaderTopSection';
+import HotelPage from './HotelPage';
+import Footer from './Footer';
 
 function App() {
+  return (
+    <>
+      <Router>
+        <HeaderTopSection />
+        <Switch>
+          <Route exact path="/"><MainPage /></Route>
+          <Route path="/hotels/:id"><HotelPage /></Route>
+        </Switch>
+        <Footer />
+      </Router>
+    </>
+  );
+}
+function MainPage() {
   return (
     <>
       <TopSection />
