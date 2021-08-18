@@ -1,32 +1,48 @@
 import React from 'react';
 import '../styles/components/App.css';
-import data from "../constants/dataGuest";
+import { Link } from 'react-router-dom';
 
-
-function HotelsImage(props) {
+function HotelsImage({
+  image, name, city, country,
+}) {
   return (
-      <div className="hotels_card">
-        <img src={props.image} className="images"/>
-          <p className="homes_guests_loves_main_name_hotel"> {props.name} </p>
-          <p className="homes_guests_loves_main_name_place"> {props.city}, {props.country} </p>
-      </div>
+    <div className="hotels_card">
+      <img src={image} className="images" alt="hotelsImage" />
+      <p className="homes_guests_loves_main_name_hotel">{name}</p>
+      <p className="homes_guests_loves_main_name_place">
+        {city}
+        ,
+        {' '}
+        {country}
+      </p>
+    </div>
   );
 }
 
-function HotelsContainerGuestLoves() {
-    let images = [];
-    for (let i = 0; i<4 && i<data.length; i++) {
-        images.push(<HotelsImage image={data[i].imageUrl} key={data[i].id} country={data[i].country} name={data[i].name}
-                                 city={data[i].city}/>);
+class HotelsContainerGuestLoves extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const images = [];
+    const { data } = this.props;
+    for (let i = 0; i < 4 && i < data.length; i++) {
+      images.push(<Link className="homes_guests_loves_main_name_place" to={`/hotels/${data[i].id}`}>
+        <HotelsImage
+          image={data[i].imageUrl}
+          key={data[i].id}
+          country={data[i].country}
+          name={data[i].name}
+          city={data[i].city}
+        /></Link>);
     }
-  return (
+    return (
       <div className="hotels_name_container" id="all_hotels">
-          {images}
+        {images}
       </div>
-  );
+    );
+  }
 }
 
-export {HotelsContainerGuestLoves, HotelsImage};
-
-
-
+export { HotelsContainerGuestLoves, HotelsImage };
